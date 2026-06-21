@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-bts-primary: #82b0c2; /* New primary color */
+  --color-bts-primary-light: #e6f0f4; /* Light variant for backgrounds */
+  --color-bts-secondary: #334155; /* Elegant dark slate for text */
+  --color-bts-light: #ffffff;
+  --color-bts-gray: #f8fafc;
+  --color-bts-dark-bg: #1e293b;
+
+  /* Overrides for common tailwind colors used in Dashboards */
+  --color-indigo-50: #f2f7f9;
+  --color-indigo-100: #e0ecf1;
+  --color-indigo-200: #c1d9e2;
+  --color-indigo-300: #93bed0;
+  --color-indigo-400: #82b0c2;
+  --color-indigo-500: #82b0c2; 
+  --color-indigo-600: #82b0c2;
+  --color-indigo-700: #6593a6;
+  --color-indigo-800: #4a7587;
+  
+  --color-blue-500: #82b0c2;
+  --color-blue-600: #82b0c2;
+  --color-blue-700: #6593a6;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-bts-gray);
+  color: var(--color-bts-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
