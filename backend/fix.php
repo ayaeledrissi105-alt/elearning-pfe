@@ -1,9 +1,9 @@
 <?php
-require 'vendor/autoload.php';
-$app = require_once 'bootstrap/app.php';
-$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+require __DIR__.'/../vendor/autoload.php';
+$app = require_once __DIR__.'/../bootstrap/app.php';
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+$request = Illuminate\Http\Request::capture();
+$response = $kernel->handle($request);
 
-$teachers = App\Models\User::where('role', 'teacher')->with('classes')->get();
-foreach($teachers as $t) {
-    echo 'Teacher ' . $t->name . " classes: " . count($t->classes) . "\n";
-}
+\Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+echo "<h1>Super, la base de donnees est mise a jour avec l'administrateur !</h1>";
